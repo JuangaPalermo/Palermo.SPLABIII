@@ -2,7 +2,6 @@ import Anuncio_Auto from "./auto.js";
 
 let autos = [];
 let tablaFiltrada = [];
-let columnasFiltradas = [];
 
 //#region Axios
 
@@ -21,7 +20,7 @@ const getAutosAxiosAsync = async () => {
 const altaAutoAxiosAsync = async (nuevoAuto) => {
   agregarSpinner();
   try {
-    const { data } = await axios.post("http://localhost:5000/autos", nuevoAuto);
+    await axios.post("http://localhost:5000/autos", nuevoAuto);
   } catch (err) {
     console.error(err.response);
   } finally {
@@ -32,7 +31,7 @@ const altaAutoAxiosAsync = async (nuevoAuto) => {
 const updateAutoAxiosAsync = async (autoEditado) => {
   agregarSpinner();
   try {
-    const { data } = await axios.put(
+    await axios.put(
       "http://localhost:5000/autos/" + autoEditado.id,
       autoEditado
     );
@@ -46,9 +45,7 @@ const updateAutoAxiosAsync = async (autoEditado) => {
 const deleteAutoAxios = async (idDestino) => {
   agregarSpinner();
   try {
-    const { data } = await axios.delete(
-      "http://localhost:5000/autos/" + idDestino
-    );
+    await axios.delete("http://localhost:5000/autos/" + idDestino);
   } catch (err) {
     console.error(err.response);
   } finally {
@@ -70,9 +67,6 @@ window.addEventListener("DOMContentLoaded", async () => {
     handlerLoadList(autos);
     autos.forEach((el) => {
       tablaFiltrada.push(el);
-    });
-    autos.forEach((el) => {
-      columnasFiltradas.push(el);
     });
   }
 });
@@ -144,8 +138,6 @@ async function handlerClick(e) {
       await deleteAutoAxios(id);
     }
     limpiarFormulario(document.forms[0]);
-  } else if (e.target.matches("#btnCalcularPromedio")) {
-    calcularPromedio(tablaFiltrada);
   } else if (e.target.matches("#btnFiltroTodos")) {
     filtroTodos(tablaFiltrada);
   } else if (e.target.matches("#btnFiltroAlquiler")) {
@@ -380,7 +372,7 @@ function filtroAlquiler(lista) {
   const precios = listaFiltrada.map((e) => e.precio);
   const lenPrecios = precios.length;
   const totalPrecios = precios.reduce((acc, el) => acc + el, 0);
-  const resultado = totalPrecios / lenPrecios;
+  const resultado = Math.round(totalPrecios / lenPrecios);
   document.getElementById("lblResultado").textContent = resultado;
   handlerLoadList(listaFiltrada);
 }
@@ -389,21 +381,9 @@ function filtroVenta(lista) {
   const precios = listaFiltrada.map((e) => e.precio);
   const lenPrecios = precios.length;
   const totalPrecios = precios.reduce((acc, el) => acc + el, 0);
-  const resultado = totalPrecios / lenPrecios;
+  const resultado = Math.round(totalPrecios / lenPrecios);
   document.getElementById("lblResultado").textContent = resultado;
   handlerLoadList(listaFiltrada);
-}
-
-//#endregion
-
-//#region calculo de promedio
-
-function calcularPromedio(lista) {
-  const precios = lista.map((e) => e.precio);
-  const lenPrecios = precios.length;
-  const totalPrecios = precios.reduce((acc, el) => acc + el, 0);
-  const resultado = totalPrecios / lenPrecios;
-  document.getElementById("lblResultado").textContent = resultado;
 }
 
 //#endregion

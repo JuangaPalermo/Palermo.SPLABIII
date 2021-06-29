@@ -31,24 +31,34 @@
       "potencia": "350"
     },
     {
-      "id": 1624988337344,
-      "titulo": "A ber eso",
-      "transaccion": "Venta",
-      "descripcion": "pelelpelelpe",
-      "precio": 123,
-      "cantPuertas": "1",
-      "cantKMs": "1231231",
-      "potencia": "123"
+      "id": 1624990696843,
+      "titulo": "Fiorino",
+      "transaccion": "Alquiler",
+      "descripcion": "Se alquila para pequeños fletes",
+      "precio": 3000,
+      "cantPuertas": "3",
+      "cantKMs": "300000",
+      "potencia": "700"
     },
     {
-      "id": 1624990696843,
-      "titulo": "testing",
+      "id": 1625006748951,
+      "titulo": "Toyota Corolla",
       "transaccion": "Venta",
-      "descripcion": "auto en venta",
-      "precio": 12564,
-      "cantPuertas": "3",
-      "cantKMs": "120000",
-      "potencia": "300"
+      "descripcion": "Auto gris, dos puertas, buen estado",
+      "precio": 450000,
+      "cantPuertas": "2",
+      "cantKMs": "60000",
+      "potencia": "250"
+    },
+    {
+      "id": 1625006826460,
+      "titulo": "Polo",
+      "transaccion": "Alquiler",
+      "descripcion": "Se alquila los fines de semana",
+      "precio": 5000,
+      "cantPuertas": "4",
+      "cantKMs": "250000",
+      "potencia": "350"
     }
   ]
 }
