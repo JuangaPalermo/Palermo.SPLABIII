@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./js/scripts.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/f52230b156.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.1/underscore-umd-min.js
+    "></script>
+    <title>Pisteando Automoviles</title>
+  </head>
+  <body>
+    <header>
+      <div id="encabezado" class="container-fluid">
+        <img src="./img/logo.png" alt="Logo Automoviles" id="imagenLogo" />
+        <nav>
+          <ul>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Anuncios</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contactos</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="titulo">
+      <h1>Administracion</h1>
+      <img
+        src="./img/subtitulo.jpeg"
+        alt="subtitulo-autos-en-fila"
+        id="imagenSubtitulo"
+      />
+    </div>
+    <fieldset>
+      <legend>Informacion del anuncio</legend>
+      <div class="formContainer">
+        <form id="formAutomovil">
+          <input type="hidden" name="id" />
+          <div class="row justify-content-center">
+            <input
+              class="form-control col-10"
+              id="txtTiulo"
+              type="text"
+              name="titulo"
+              placeholder="Titulo"
+              required
+            />
+          </div>
+          <div class="row justify-content-center">
+            <fieldset class="transaccionFieldset col-10">
+              <legend>Transaccion</legend>
+              <div class="row justify-content-around">
+                <div class="form-group">
+                  <input
+                    type="radio"
+                    name="transaccion"
+                    value="Venta"
+                    checked
+                  />Venta
+                </div>
+                <div class="form-group">
+                  <input
+                    type="radio"
+                    name="transaccion"
+                    value="Alquiler"
+                  />Alquiler
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="row justify-content-center">
+            <input
+              class="form-control col-10 mt-3"
+              type="text"
+              name="descripcion"
+              placeholder="Descripcion"
+              required
+            />
+          </div>
+          <div class="row justify-content-center">
+            <input
+              class="form-control col-10 mt-3"
+              type="text"
+              name="precio"
+              placeholder="Precio"
+              step="0.01"
+              required
+            />
+          </div>
+          <div class="cantidadesContainer">
+            <div id="puertasContainer">
+              <i class="fas fa-door-open"></i>
+              <input
+                class="txtForm"
+                type="number"
+                name="cantPuertas"
+                placeholder="Cantidad de puertas"
+                required
+              />
+            </div>
+            <div id="kilometrosContainer">
+              <i class="fas fa-car"></i>
+              <input
+                class="txtForm"
+                type="number"
+                name="cantKMs"
+                step="0.01"
+                placeholder="Cantidad de kilometros"
+                required
+              />
+            </div>
+            <div id="potenciaContainer">
+              <i class="fas fa-dumbbell"></i>
+              <input
+                class="txtForm"
+                type="number"
+                name="potencia"
+                step="0.01"
+                placeholder="Cantidad de potencia"
+                required
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div id="spinner-container"></div>
+    </fieldset>
+
+    <div id="buttonsContainer">
+      <div id="guardadoContainer">
+        <button
+          type="submit"
+          class="btnForm btn btn-success"
+          id="btnSubmit"
+          form="formAutomovil"
+        >
+          <i class="fas fa-save"></i> Guardar Automovil
+        </button>
+      </div>
+      <input
+        type="button"
+        class="btnForm btn btn-secondary hidden"
+        id="btnEliminar"
+        value="Eliminar"
+        form="formAutomovil"
+      />
+    </div>
+
+    <div
+      id="buttonsContainer"
+      class="row justify-content-around align-items-center"
+    >
+      <div class="dropdown col-5">
+        <button
+          class="btn btn-primary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Filtros:
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <button class="dropdown-item" id="btnFiltroTodos" type="button">
+            Todos
+          </button>
+          <button class="dropdown-item" id="btnFiltroAlquiler" type="button">
+            Alquiler
+          </button>
+          <button class="dropdown-item" id="btnFiltroVenta" type="button">
+            Venta
+          </button>
+        </div>
+      </div>
+
+      <label id="lblResultado" class="col-5 form-control mb-0 text-center"
+        >N/A</label
+      >
+    </div>
+
+    <div class="container-fluid row justify-content-center">
+      <div class="filtroContainer row text-center">
+        <div class="col-4">
+          <label
+            ><input
+              type="checkbox"
+              name="cbTitulo"
+              id="cbTitulo"
+              checked
+            /><br />Titulo</label
+          >
+        </div>
+        <div class="col-4">
+          <label
+            ><input
+              type="checkbox"
+              name="cbTransaccion"
+              id="cbTransaccion"
+              checked
+            /><br />Transaccion</label
+          >
+        </div>
+        <div class="col-4">
+          <label
+            ><input
+              type="checkbox"
+              name="cbDescripcion"
+              id="cbDescripcion"
+              checked
+            />
+            <br />
+            Descripcion</label
+          >
+        </div>
+        <div class="col-3">
+          <label
+            ><input
+              type="checkbox"
+              name="cbPrecio"
+              id="cbPrecio"
+              checked
+            /><br />Precio</label
+          >
+        </div>
+        <div class="col-3">
+          <label
+            ><input
+              type="checkbox"
+              name="cbPuertas"
+              id="cbPuertas"
+              checked
+            /><br />Puertas</label
+          >
+        </div>
+        <div class="col-3">
+          <label
+            ><input
+              type="checkbox"
+              name="cbKilometros"
+              id="cbKilometros"
+              checked
+            /><br />Kilometros</label
+          >
+        </div>
+        <div class="col-3">
+          <label
+            ><input
+              type="checkbox"
+              name="cbPotencia"
+              id="cbPotencia"
+              checked
+            /><br />Potencia</label
+          >
+        </div>
+      </div>
+    </div>
+
+    <div id="divLista"></div>
+
+    <footer>
+      <div id="footerContainer">
+        <nav>
+          <ul>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Anuncio</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </nav>
+        <p>Todos los derechos reservados <date>2021</date> &copy;</p>
+      </div>
+    </footer>
+  </body>
+</html>

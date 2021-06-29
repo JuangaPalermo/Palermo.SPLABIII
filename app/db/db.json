@@ -1,0 +1,54 @@
+{
+  "autos": [
+    {
+      "id": 1622588273339,
+      "titulo": "Nissan March",
+      "transaccion": "Venta",
+      "descripcion": "Muy lindo y de color blanco",
+      "precio": 155000,
+      "cantPuertas": "4",
+      "cantKMs": "45000",
+      "potencia": "160"
+    },
+    {
+      "id": 1624926456400,
+      "titulo": "Nuevo Auto modif",
+      "transaccion": "Venta",
+      "descripcion": "Este auto fue creado con Axios",
+      "precio": 99999,
+      "cantPuertas": "1",
+      "cantKMs": "2",
+      "potencia": "3"
+    },
+    {
+      "id": 1624972330043,
+      "titulo": "nuevo alquiler",
+      "transaccion": "Alquiler",
+      "descripcion": "sadas",
+      "precio": 100000,
+      "cantPuertas": "2",
+      "cantKMs": "30000",
+      "potencia": "400"
+    },
+    {
+      "id": 1624988337344,
+      "titulo": "A ber eso",
+      "transaccion": "Venta",
+      "descripcion": "pelelpelelpe",
+      "precio": 123,
+      "cantPuertas": "1",
+      "cantKMs": "1231231",
+      "potencia": "123"
+    },
+    {
+      "id": 1624990696843,
+      "titulo": "testing",
+      "transaccion": "Venta",
+      "descripcion": "auto en venta",
+      "precio": 12564,
+      "cantPuertas": "3",
+      "cantKMs": "120000",
+      "potencia": "300"
+    }
+  ]
+}
