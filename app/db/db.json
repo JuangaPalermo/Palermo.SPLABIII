@@ -12,23 +12,23 @@
     },
     {
       "id": 1624926456400,
-      "titulo": "Nuevo Auto modif",
+      "titulo": "PT Cruiser",
       "transaccion": "Venta",
-      "descripcion": "Este auto fue creado con Axios",
-      "precio": 99999,
-      "cantPuertas": "1",
-      "cantKMs": "2",
-      "potencia": "3"
+      "descripcion": "Auto bordo, bastante uso pero en buen estado",
+      "precio": 150000,
+      "cantPuertas": "5",
+      "cantKMs": "100000",
+      "potencia": "300"
     },
     {
       "id": 1624972330043,
-      "titulo": "nuevo alquiler",
+      "titulo": "Mercedes Clase A",
       "transaccion": "Alquiler",
-      "descripcion": "sadas",
-      "precio": 100000,
-      "cantPuertas": "2",
-      "cantKMs": "30000",
-      "potencia": "400"
+      "descripcion": "Alquiler por el verano",
+      "precio": 25000,
+      "cantPuertas": "4",
+      "cantKMs": "50000",
+      "potencia": "350"
     },
     {
       "id": 1624988337344,

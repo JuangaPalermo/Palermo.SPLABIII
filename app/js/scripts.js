@@ -154,16 +154,12 @@ async function handlerClick(e) {
     filtroVenta(tablaFiltrada);
   } else if (e.target.matches("#cbTitulo")) {
     if (document.getElementById("cbTitulo").checked) {
-      //esto sucede si selecciono el CB
-      //aca tengo que agregar el titulo de los autos a la tabla filtrada
       tablaFiltrada = autos.map(function (auto) {
         const obj = auto;
         obj.titulo = auto.titulo;
         return obj;
       });
     } else {
-      //esto sucede si deselecciono el cb
-      //aca tengo que quitar el array de tablamodificada, el titulo de todos los objetos
       tablaFiltrada = tablaFiltrada.map(function (auto) {
         const obj = _.omit(auto, "titulo");
         return obj;
@@ -335,8 +331,10 @@ function limpiarFormulario(frm) {
   frm.reset();
   document.getElementById("btnEliminar").classList.add("hidden");
   document.getElementById("btnSubmit").textContent = "Guardar Automovil";
-  document.getElementById("btnSubmit").classList.add("btn-success");
-  document.getElementById("btnSubmit").classList.remove("btn-secondary");
+  document
+    .getElementById("btnSubmit")
+    .classList.replace("btn-secondary", "btn-primary");
+
   document.forms[0].id.value = "";
 }
 
@@ -363,8 +361,9 @@ function cargarFormulario(id) {
   frm.id.value = id;
 
   document.getElementById("btnSubmit").textContent = "Modificar Automovil";
-  document.getElementById("btnSubmit").classList.remove("btn-success");
-  document.getElementById("btnSubmit").classList.add("btn-secondary");
+  document
+    .getElementById("btnSubmit")
+    .classList.replace("btn-success", "btn-secondary");
   document.getElementById("btnEliminar").classList.remove("hidden");
 }
 
@@ -373,11 +372,7 @@ function cargarFormulario(id) {
 //#region gestion de filtros
 
 function filtroTodos(lista) {
-  const precios = lista.map((e) => e.precio);
-  const lenPrecios = precios.length;
-  const totalPrecios = precios.reduce((acc, el) => acc + el, 0);
-  const resultado = totalPrecios / lenPrecios;
-  document.getElementById("lblResultado").textContent = resultado;
+  document.getElementById("lblResultado").textContent = "N/A";
   handlerLoadList(lista);
 }
 function filtroAlquiler(lista) {

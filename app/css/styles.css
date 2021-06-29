@@ -200,3 +200,7 @@ footer p {
   margin-top: 70px;
   margin-right: 30px;
 }
+
+footer nav {
+  align-self: flex-end;
+}
